@@ -1,0 +1,16 @@
+.DS_Store
+.gradle
+.idea
+local.properties
+andorid/mobile/release/*
+bin
+gen
+out
+build
+captures
+node_modules
+*.iml
+ios.xcworkspace/
+.externalNativeBuild
+.kotlin/
+

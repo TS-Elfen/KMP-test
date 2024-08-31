@@ -1,4 +1,4 @@
-rootProject.name = "DevStandard"
+rootProject.name = "kmptest"
 enableFeaturePreview("TYPESAFE_PROJECT_ACCESSORS")
 
 pluginManagement {

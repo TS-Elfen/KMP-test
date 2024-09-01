@@ -20,35 +20,22 @@ import org.jetbrains.compose.resources.painterResource
 import kmptest.composeapp.generated.resources.Res
 import kmptest.composeapp.generated.resources.compose_multiplatform
 import org.jetbrains.compose.resources.ExperimentalResourceApi
+import org.jetbrains.compose.ui.tooling.preview.Preview
 
-class App: Screen {
-
-    override val key: ScreenKey = uniqueScreenKey
-
-    @OptIn(ExperimentalResourceApi::class)
-    @Composable
-    override fun Content() {
-        MaterialTheme {
-            val viewModel = koinScreenModel<AppViewModel>()
-            val navigator = LocalNavigator.currentOrThrow
-            val showsContent by viewModel.showsContent.collectAsState()
-
-
-            var showContent by remember { mutableStateOf(false) }
-            Column(Modifier.fillMaxWidth(), horizontalAlignment = Alignment.CenterHorizontally) {
-                val navigator = LocalNavigator.currentOrThrow
-
-                Button(onClick = {
-                    navigator.push(SecondScreen())
-                }) {
-                    Text("Click me!")
-                }
-                AnimatedVisibility(showContent) {
-                    val greeting = remember { Greeting().greet() }
-                    Column(Modifier.fillMaxWidth(), horizontalAlignment = Alignment.CenterHorizontally) {
-                        Image(painterResource(Res.drawable.compose_multiplatform), null)
-                        Text("Compose: $greeting")
-                    }
+@Composable
+@Preview
+fun App() {
+    MaterialTheme {
+        var showContent by remember { mutableStateOf(false) }
+        Column(Modifier.fillMaxWidth(), horizontalAlignment = Alignment.CenterHorizontally) {
+            Button(onClick = { showContent = !showContent }) {
+                Text("Click me!")
+            }
+            AnimatedVisibility(showContent) {
+                val greeting = remember { Greeting().greet() }
+                Column(Modifier.fillMaxWidth(), horizontalAlignment = Alignment.CenterHorizontally) {
+                    Image(painterResource(Res.drawable.compose_multiplatform), null)
+                    Text("Compose: $greeting")
                 }
             }
         }

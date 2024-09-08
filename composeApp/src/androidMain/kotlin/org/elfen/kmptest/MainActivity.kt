@@ -27,7 +27,9 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
 
         setContent {
-            Navigator(screen = FirstScreen())
+            Navigator(
+                screen = FirstScreen()
+            )
         }
     }
 }

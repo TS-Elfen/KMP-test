@@ -3,4 +3,4 @@ package org.elfen.kmptest
 import androidx.compose.ui.window.ComposeUIViewController
 import cafe.adriel.voyager.navigator.Navigator
 
-fun MainViewController() = ComposeUIViewController { Navigator(screen = HomeScreen()) }
+fun MainViewController() = ComposeUIViewController { Navigator(screen = FirstScreen()) }
